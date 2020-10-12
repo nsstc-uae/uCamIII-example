@@ -1,19 +1,20 @@
 # uCamIII-example
-This is an example program to click raw or jpeg image from [uCamIII](https://4dsystems.com.au/ucam-iii) based on the [documentation](https://github.com/nsstc-uae/uCamIII-example/blob/main/uCAM-III_datasheet_R_1_0-1100457.pdf). The given example code i.e. [uCamIII.c](https://github.com/nsstc-uae/uCamIII-example/blob/main/uCamIII.c) clicks and saves a JPEG image of resolution 160x128 with filename, `jpeg160x128.jpg`; if you want to click and save other mode (jpeg or raw) and other resolution of image (160x128, 320x240, 640x480 etc.), you will have to modify the  call function corrosponding to the mode and valid resolution for the mode and recompile.   The details of the function to change has been explained in section [How to click different modes and resolution of image](https://github.com/nsstc-uae/uCamIII-example#how-to-click-different-modes-and-resolution-of-image)
+This is an example program to click raw or jpeg image from [uCamIII](https://4dsystems.com.au/ucam-iii) based on the [documentation](https://github.com/nsstc-uae/uCamIII-example/blob/main/uCAM-III_datasheet_R_1_0-1100457.pdf). The given example code i.e. [uCamIII.c](https://github.com/nsstc-uae/uCamIII-example/blob/main/uCamIII.c) clicks and saves a JPEG image of resolution 160x128 with filename, `jpeg160x128.jpg`; if you want to click and save other mode (jpeg or raw) and other resolution of image (160x128, 320x240, 640x480 etc.), you will have to modify [uCamIII.c](https://github.com/nsstc-uae/uCamIII-example/blob/main/uCamIII.c). You'll have to replace [`takeJpegPic(&ucam, JPEG_RES_160_128, "jpeg160x128.jpg");`](https://github.com/nsstc-uae/uCamIII-example/blob/main/uCamIII.c#L42) with appropriate function corrosponding to the mode and resolution and recompile. The details of which function to call has been explained in section [How to click different modes and resolution of image](https://github.com/nsstc-uae/uCamIII-example#how-to-click-different-modes-and-resolution-of-image)
 
 ## Overview:
 The example implements functions to sync the camera, and take raw and jpg images according to datasheet. Specifically, it implements functions to:
-1. [sync](https://github.com/nsstc-uae/uCamIII-example/blob/main/uCamIII.c#L95)  
+1. [Sync](https://github.com/nsstc-uae/uCamIII-example/blob/main/uCamIII.c#L95)  
 2. [Take jpeg pic](https://github.com/nsstc-uae/uCamIII-example/blob/main/uCamIII.c#L147) 
 3. [Take raw image](https://github.com/nsstc-uae/uCamIII-example/blob/main/uCamIII.c#L255) 
 
 ## Installation Guidelines 
 1. Copy the file [uCamIII.rules](https://github.com/nsstc-uae/uCamIII-example/blob/main/uCamIII.rules) in direcory */etc/udev/rules.d* or corrosponding udev rules directory in your linux system. This rule creates a symlink "/dev/ucam" with proper permissions whenever uCamIII is connected via USB to your linux machine.  
+**Note**: If you do not want to avoid this step, once you connect the uCamIII usb to your machine, a corresponding */dev/ttyUSB0* or */dev/ttyUSBx* will be created in your linux system. Update the  [#define UART_DEVICE](https://github.com/nsstc-uae/uCamIII-example/blob/main/include/uCamIII.h#L39) in [uCamIII.h](https://github.com/nsstc-uae/uCamIII-example/blob/main/include/uCamIII.h) and re-compile the code.   
 2. From the directory where [uCamIII.c](https://github.com/nsstc-uae/uCamIII-example/blob/main/uCamIII.c) is located, execute  
 a. To compile this example:   
-        <b>make uCamIIIcompile</b>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **make uCamIIIcompile**  
 b. To click a photo:  
-        <b>make clickImage</b>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **make clickImage**  
   
 ## How to click different modes and resolution of image
 The given [uCamIII.c](https://github.com/nsstc-uae/uCamIII-example/blob/main/uCamIII.c) code will give you JPEG with resolution 160x128 in accordance with code [`takeJpegPic(&ucam, JPEG_RES_160_128, "jpeg160x128.jpg");`](https://github.com/nsstc-uae/uCamIII-example/blob/main/uCamIII.c#L42). To click image with different mode and resolution, one has to modify the [*main()*](https://github.com/nsstc-uae/uCamIII-example/blob/main/uCamIII.c#L17) function and call appropriate function with proper parameters. The function to modify/replace is: [`takeJpegPic(&ucam, JPEG_RES_160_128, "jpeg160x128.jpg");`](https://github.com/nsstc-uae/uCamIII-example/blob/main/uCamIII.c#L42) in the file [uCamIII.c](https://github.com/nsstc-uae/uCamIII-example/blob/main/uCamIII.c).  
