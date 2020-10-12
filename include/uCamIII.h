@@ -69,7 +69,7 @@
 #define RAW_RES_80_60 		(0x01)
 #define RAW_RES_160_120		(0x03)
 #define RAW_RES_128_128 	(0x09)
-#define RAW_RES_128_90 		(0x0B)
+#define RAW_RES_128_96 		(0x0B)
 
 // resolution options for jpeg image
 #define JPEG_RES_160_128 (0x03)
