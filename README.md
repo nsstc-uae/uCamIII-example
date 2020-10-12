@@ -40,7 +40,7 @@ e.g.
 			<td>80x60 (RAW_RES_80_60)</td>
 			<td>160x120 (RAW_RES_160_120)</td>
 			<td>128x128 (RAW_RES_128_128) </td>
-			<td>128x96 (RAW_RES_128_90)</td>
+			<td>128x96 (RAW_RES_128_96)</td>
 		</tr>
 		<tr>
 			<td> 8-bit Gray Scale (RAW, 8-bit for Y only) </td>
