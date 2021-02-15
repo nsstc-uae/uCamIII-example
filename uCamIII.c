@@ -279,7 +279,7 @@ int8_t takeRawPic(ucam_t *ucam, uint8_t rawMode, uint8_t rawResolution, uint16_t
 		rawMode=GRAYSCALE_MODE;
 	}
 
-	if( (RAW_RES_80_60 != rawResolution) && (RAW_RES_160_120 != rawResolution) && (RAW_RES_128_128 != rawResolution)  &&  (RAW_RES_128_90 != rawResolution))
+	if( (RAW_RES_80_60 != rawResolution) && (RAW_RES_160_120 != rawResolution) && (RAW_RES_128_128 != rawResolution)  &&  (RAW_RES_128_96 != rawResolution))
 	{
 		printf("\nspecified raw resolution: %02X is invalid, reverting to raw resolution: %02X\n", rawMode, RAW_RES_80_60);
 		rawResolution=RAW_RES_80_60;
